@@ -7,8 +7,6 @@ env:
     Project: "vaishnaviisasre"
 phases:
   install:
-    runtime-versions:
-      nodejs: 20
     commands:
       - echo "Install phase ..."
   pre_build:
