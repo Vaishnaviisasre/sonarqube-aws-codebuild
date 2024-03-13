@@ -1,10 +1,10 @@
 version: 0.2
 env:
-  secrets-manager:
-    LOGIN: local/sonar:sonartoken
-    HOST: local/sonar:HOST
-    Organization: local/sonar:Organization
-    Project: local/sonar:Project
+  variables:
+    LOGIN: "f0a242e54f7a8a9dc329707ba5e4db09460d49bc"
+    HOST: "https://sonarcloud.io"
+    Organization: "vaishnaviisasre_springboot"
+    Project: "vaishnaviisasre"
 phases:
   install:
     commands:
