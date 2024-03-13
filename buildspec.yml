@@ -1,9 +1,16 @@
+version: 0.2
+env:
+  variables:
+    LOGIN: "f0a242e54f7a8a9dc329707ba5e4db09460d49bc"
+    HOST: "https://sonarcloud.io"
+    Organization: "vaishnaviisasre_springboot"
+    Project: "vaishnaviisasre"
 phases:
   install:
-    commands:
-      - echo "Install phase ..."
     runtime-versions:
       nodejs: 20
+    commands:
+      - echo "Install phase ..."
   pre_build:
     commands:
       - echo "Pre build phase ..."
