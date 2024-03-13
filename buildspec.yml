@@ -7,8 +7,10 @@ env:
     Project: "vaishnaviisasre"
 phases:
   install:
+    commands:
+      - echo "Install phase ..."
     runtime-versions:
-      ubuntu: 18.04
+      nodejs: 16
   pre_build:
     commands:
       - echo "Pre build phase ..."
