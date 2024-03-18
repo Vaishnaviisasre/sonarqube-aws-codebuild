@@ -34,7 +34,13 @@ build:
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
       - cat result.json
-      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ]; then if [ $CODEBUILD_BUILD_SUCCEEDING -eq 0 ]; fi
+      - |
+        if [ "$(jq -r '.projectStatus.status' result.json)" = "ERROR" ]; then
+          if [ "$CODEBUILD_BUILD_SUCCEEDING" -eq 0 ]; then
+            echo "Build failed due to SonarCloud error."
+            exit 1
+          fi
+        fi
   post_build:
     commands:
       - echo "Post build phase ..."
