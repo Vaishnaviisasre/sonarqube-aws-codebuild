@@ -23,9 +23,13 @@ phases:
       - export PATH=$PATH:./sonar-scanner-4.7.0.2747-linux/bin/
       - curl -sL https://rpm.nodesource.com/setup_14.x | bash -
       - yum install -y nodejs
-  build:
+build:
     commands:
       - echo "Build phase ..."
+      - echo "Login value: $LOGIN"
+      - echo "Host Name: $HOST"
+      - echo "Organization Name: $Organization"
+      - echo "Project Name: $Project"
       - sonar-scanner -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$Project -Dsonar.organization=$Organization
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
